@@ -9,3 +9,23 @@ body {
   font-weight: 600;
   margin: 40px 40px 20px 20px;
 }
+
+#value_area {
+  display: flex;
+  width: 300px;
+  gap: 40px;
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.value_wrapper {
+  font-weight: 600;
+}
+
+.value_label {
+  font-size: 20px;
+}
+
+.value {
+  font-size: 60px;
+}
