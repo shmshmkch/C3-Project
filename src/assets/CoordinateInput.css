@@ -9,7 +9,7 @@
     position: relative;
 }
 
-#coordinate_input #coordinate_plane {
+#coordinate_plane_wrapper {
     width: calc(100% - 80px);
     aspect-ratio: 1;
     position: absolute;
@@ -42,17 +42,31 @@
     left: 50%;
     transform: translate(-50%, calc(-100% - 10px));
 }
+#coordinate_plane, #tracking_area {
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+#coordinate_plane {
+    background-size: cover;
+    mix-blend-mode: soft-light;
+}
 
 #pointer {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    height: 20px;
-    width: 20px;
+    transform-origin: center;
     border-radius: 50%;
     background-color: aliceblue;
     z-index: 100;
     cursor: pointer;
+    mix-blend-mode: normal;
 }
 
 #axis_img {
