@@ -12,8 +12,9 @@ body {
 
 #value_area {
   display: flex;
+  flex-direction: row;
   width: 300px;
-  gap: 40px;
+  gap: 20px;
   margin-top: 40px;
   margin-left: 40px;
 }
@@ -28,4 +29,5 @@ body {
 
 .value {
   font-size: 60px;
+  font-variant-numeric: tabular-nums;
 }

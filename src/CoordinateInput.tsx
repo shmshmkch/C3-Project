@@ -1,25 +1,31 @@
-import { useState, useCallback, useEffect, useRef} from 'react';
+import { type Dispatch, useState, useCallback, useEffect, useRef} from 'react';
 import './assets/CoordinateInput.css';
 import Message from './Message';
 import axisImg from "./assets/axis.png"
 
-function CoordinateInput() {
+type ValueProps = {
+  value: {x: number, y:number},
+  setValue: Dispatch<React.SetStateAction<{x: number, y:number}>>
+};
+
+function CoordinateInput(props: ValueProps) {
 
     const trackingAreaRef = useRef<HTMLInputElement>(null)
     
     const pointerSize = 20
 
     const [isDragging, setIsDragging] = useState(false);
-    const [pointerPosition, setPointerPosition] = useState({ x: 10, y: 100 });
 
     const handleMouseDown = (e: React.MouseEvent) => {
         setIsDragging(true)
-        setPointerPosition(convertCoordinate(e.clientX, e.clientY))
+        const value = calculateValueFromCoordinate(e.clientX, e.clientY)
+        props.setValue({x: value.x, y: 100 - value.y})
     };
 
     const handleMouseMove = (e: React.MouseEvent | MouseEvent) => {
         if (isDragging) {
-            setPointerPosition(convertCoordinate(e.clientX, e.clientY))
+            const value = calculateValueFromCoordinate(e.clientX, e.clientY)
+            props.setValue({x: value.x, y: 100 - value.y})
         }
         document.onselectstart = () => {
             return false
@@ -34,7 +40,7 @@ function CoordinateInput() {
         setIsDragging(false)
     }
 
-    const convertCoordinate = (x: number,y: number) => {
+    const calculateValueFromCoordinate = (x: number,y: number) => {
         if (trackingAreaRef.current) {
             const rect = trackingAreaRef.current.getBoundingClientRect()
 
@@ -55,10 +61,9 @@ function CoordinateInput() {
                 calculatedY = rect.height
             }
             
-
-            return {x: calculatedX, y: calculatedY}
+            return {x: Math.floor((calculatedX / rect.width) * 100), y: Math.floor((calculatedY / rect.height) * 100)}
         } else {
-            return {x:0, y:0}
+            return {x:50, y:50}
         }
     }
 
@@ -75,9 +80,10 @@ function CoordinateInput() {
                     <div 
                         id="pointer" 
                         style={{
-                            transform: `translateX(${pointerPosition.x - pointerSize/2}px) translateY(${pointerPosition.y - pointerSize/2}px)`,
                             height: `${pointerSize}px`,
-                            width: `${pointerSize}px`
+                            width: `${pointerSize}px`,
+                            top: `calc(${100 - props.value.y}% - ${pointerSize/2}px)`,
+                            left: `calc(${props.value.x}% - ${pointerSize/2}px)`,
                         }}>
                     </div>
                 </div>
