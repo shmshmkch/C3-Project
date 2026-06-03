@@ -3,7 +3,7 @@
     height: 500px;
     width: 300px;
     background: #345B79;
-    background: linear-gradient(240deg, rgba(52, 91, 121, 0.8) 0%, rgba(164, 171, 185, 0.8) 100%);
+    background: linear-gradient(200deg, rgba(52, 91, 121, 0.8), rgba(163, 166, 178, 0.8));
     box-shadow: 0px 10px 50px -6px rgba(0, 0, 0, 0.3);
     border-radius: 40px;
     position: relative;
@@ -16,7 +16,7 @@
     position: absolute;
     top: 50px;
     left: 40px;
-    background: linear-gradient(45deg, rgba(139, 145, 159, 1) 0%, rgba(52, 91, 121, 1) 100%);
+    background: linear-gradient(45deg, rgb(149, 155, 170) 0%, rgba(52, 91, 121, 1) 100%);
     box-shadow: 0px 10px 50px -6px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
 }

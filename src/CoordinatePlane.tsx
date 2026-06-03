@@ -14,6 +14,7 @@ function CoordinatePlane() {
             for (var i = 0; i < 11; i++) {
                 for (var j = 0; j < 11; j++) {
 
+                    // Do not show dots above the axes
                     if (i == 5 || j == 5) {
                         continue
                     }
