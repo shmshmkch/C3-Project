@@ -3,6 +3,7 @@ import './assets/CoordinateInput.css';
 import Message from './Message';
 import axisImg from "./assets/axis.png"
 import CoordinatePlane from './CoordinatePlane';
+import SelectBox from './SelecBox';
 
 type ValueProps = {
   value: {x: number, y:number},
@@ -92,6 +93,12 @@ function CoordinateInput(props: ValueProps) {
                 </div>
                 <div id="y_axis_label" className="axis_label">Y Coordinate</div>
                 <div id="x_axis_label" className="axis_label">X Coordinate</div>
+            </div>
+            <div id="select_area">
+                <p className="axis_text">→ Horizontal Axis</p>
+                <SelectBox className='horizontal'/>
+                <p className="axis_text">↑ Vertical Axis</p>
+                <SelectBox className="vertical"/>
             </div>
         </div>
     );

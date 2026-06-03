@@ -1,9 +1,9 @@
 #coordinate_input {
     display: flex;
-    height: 500px;
+    flex-direction: column;
     width: 300px;
     background: #345B79;
-    background: linear-gradient(200deg, rgba(52, 91, 121, 0.8), rgba(163, 166, 178, 0.8));
+    background: linear-gradient(240deg, rgba(52, 91, 121, 0.8), rgba(163, 166, 178, 0.8));
     box-shadow: 0px 10px 50px -6px rgba(0, 0, 0, 0.3);
     border-radius: 40px;
     position: relative;
@@ -11,11 +11,13 @@
 }
 
 #coordinate_plane_wrapper {
-    width: calc(100% - 80px);
+    position: relative;
+    width: 220px;
+    height: 220px;
+    align-self: flex-start;
     aspect-ratio: 1;
-    position: absolute;
-    top: 50px;
-    left: 40px;
+    margin-top: 50px;
+    margin-left: 40px;
     background: linear-gradient(45deg, rgb(149, 155, 170) 0%, rgba(52, 91, 121, 1) 100%);
     box-shadow: 0px 10px 50px -6px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
@@ -92,4 +94,21 @@
     user-select: none;
     -webkit-user-select: none;
     -webkit-user-drag: none;
+}
+
+#select_area {
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.axis_text {
+    mix-blend-mode: soft-light;
+    margin: 20px 0 10px 0;
+}
+
+.select_box {
+    
 }
