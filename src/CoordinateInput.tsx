@@ -2,6 +2,7 @@ import { type Dispatch, useState, useCallback, useEffect, useRef} from 'react';
 import './assets/CoordinateInput.css';
 import Message from './Message';
 import axisImg from "./assets/axis.png"
+import CoordinatePlane from './CoordinatePlane';
 
 type ValueProps = {
   value: {x: number, y:number},
@@ -61,7 +62,7 @@ function CoordinateInput(props: ValueProps) {
                 calculatedY = rect.height
             }
             
-            return {x: Math.floor((calculatedX / rect.width) * 100), y: Math.floor((calculatedY / rect.height) * 100)}
+            return {x: Math.round((calculatedX / rect.width) * 10)*10, y: Math.round((calculatedY / rect.height) * 10)*10}
         } else {
             return {x:50, y:50}
         }
@@ -69,13 +70,15 @@ function CoordinateInput(props: ValueProps) {
 
     return (
         <div id="coordinate_input">
-            <div id="coordinate_plane_wrapper">
-                <div id="coordinate_plane" style={{ backgroundImage: `url(${axisImg})` }}></div>
-                <div id="tracking_area"
-                     onMouseDown={handleMouseDown} 
+            <div id="coordinate_plane_wrapper"
+                    onMouseDown={handleMouseDown} 
                      onMouseMove={handleMouseMove} 
                      onMouseUp={handleMouseUp}
                      onMouseLeave={handleMouseLeave}
+            >
+                <CoordinatePlane></CoordinatePlane>
+                <div id="tracking_area"
+                     
                      ref={trackingAreaRef}>
                     <div 
                         id="pointer" 

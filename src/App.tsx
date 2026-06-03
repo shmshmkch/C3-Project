@@ -5,7 +5,7 @@ import CoordinateInput from './CoordinateInput';
 
 function App() {
 
-    const [value, setValue] = useState({ x: 0, y: 90 });
+    const [value, setValue] = useState({ x: 50, y: 50 });
 
     return (
         <div>
