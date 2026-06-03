@@ -76,7 +76,7 @@ function CoordinateInput(props: ValueProps) {
                      onMouseUp={handleMouseUp}
                      onMouseLeave={handleMouseLeave}
             >
-                <CoordinatePlane></CoordinatePlane>
+                <CoordinatePlane/>
                 <div id="tracking_area"
                      
                      ref={trackingAreaRef}>

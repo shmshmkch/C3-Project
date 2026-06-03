@@ -60,6 +60,14 @@
     mix-blend-mode: soft-light;
 }
 
+.dot_mark {
+    position:absolute;
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background: #c0c0c0;
+}
+
 #pointer {
     position: absolute;
     transform-origin: center;
