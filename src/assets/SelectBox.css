@@ -3,6 +3,7 @@
   width: auto;
   height: 40px;
   border-radius: 10px;
+  transition: .2s;
 }
 
 .select_box.horizontal {
@@ -11,6 +12,10 @@
 
 .select_box.vertical {
     background: linear-gradient(0deg, rgba(117, 129, 153, 0.46), rgba(52, 91, 121, 0.46)); /* 上下の淡いグラデーション */
+}
+
+.select_box:hover {
+    transform: scale(1.1);
 }
 
 .select_box select {
