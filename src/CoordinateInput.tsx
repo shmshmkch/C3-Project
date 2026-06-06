@@ -4,7 +4,7 @@ import Message from './Message';
 import axisImg from "./assets/axis.png"
 import { FACTOR_TYPE } from './FACTOR_TYPE.ts';
 import CoordinatePlane from './CoordinatePlane';
-import SelectBox from './SelecBox';
+import FactorSelectBox from './SelecBox';
 
 type ValueProps = {
   value: {x: number, y:number},
@@ -101,9 +101,9 @@ function CoordinateInput(props: ValueProps) {
             </div>
             <div id="select_area">
                 <p className="axis_text">→ Horizontal Axis</p>
-                <SelectBox className='horizontal' currentFactor={props.currentXFactor} setCurrentFactor={props.setCurrentXFactor}/>
+                <FactorSelectBox className='horizontal' currentFactor={props.currentXFactor} setCurrentFactor={props.setCurrentXFactor}/>
                 <p className="axis_text">↑ Vertical Axis</p>
-                <SelectBox className="vertical" currentFactor={props.currentYFactor} setCurrentFactor={props.setCurrentYFactor}/>
+                <FactorSelectBox className="vertical" currentFactor={props.currentYFactor} setCurrentFactor={props.setCurrentYFactor}/>
             </div>
         </div>
     );

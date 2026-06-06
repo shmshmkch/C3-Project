@@ -2,7 +2,7 @@ import {useEffect, useRef} from 'react';
 import './assets/SelectBox.css';
 import { FACTOR_TYPE } from './FACTOR_TYPE.ts';
 
-function SelectBox({className, currentFactor, setCurrentFactor}: {className?: string, currentFactor: string, setCurrentFactor: Function}) {
+function FactorSelectBox({className, currentFactor, setCurrentFactor}: {className?: string, currentFactor: string, setCurrentFactor: Function}) {
 
     const selectRef = useRef<HTMLSelectElement>(null)
 
@@ -10,7 +10,7 @@ function SelectBox({className, currentFactor, setCurrentFactor}: {className?: st
     console.log(currentFactor)
     useEffect(() => {
         // Add all factor options to <select>
-        for (const [key, value] of Object.entries(FACTOR_TYPE)) {
+        for (const value of Object.values(FACTOR_TYPE)) {
             if (selectRef.current && !ignore) {
                 const option = document.createElement('option'); 
                 option.text = value; // e.g. "Happiness"
@@ -44,4 +44,4 @@ function SelectBox({className, currentFactor, setCurrentFactor}: {className?: st
     );
 }
 
-export default SelectBox;
+export default FactorSelectBox;
