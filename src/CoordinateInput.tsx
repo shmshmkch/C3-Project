@@ -101,9 +101,9 @@ function CoordinateInput(props: ValueProps) {
             </div>
             <div id="select_area">
                 <p className="axis_text">→ Horizontal Axis</p>
-                <FactorSelectBox className='horizontal' currentFactor={props.currentXFactor} setCurrentFactor={props.setCurrentXFactor}/>
+                <FactorSelectBox className='horizontal' currentFactor={props.currentXFactor} setCurrentFactor={props.setCurrentXFactor} unavailableFactor={props.currentYFactor}/>
                 <p className="axis_text">↑ Vertical Axis</p>
-                <FactorSelectBox className="vertical" currentFactor={props.currentYFactor} setCurrentFactor={props.setCurrentYFactor}/>
+                <FactorSelectBox className="vertical" currentFactor={props.currentYFactor} setCurrentFactor={props.setCurrentYFactor} unavailableFactor={props.currentXFactor}/>
             </div>
         </div>
     );

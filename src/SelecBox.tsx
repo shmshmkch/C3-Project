@@ -2,16 +2,19 @@ import {useEffect, useRef} from 'react';
 import './assets/SelectBox.css';
 import { FACTOR_TYPE } from './FACTOR_TYPE.ts';
 
-function FactorSelectBox({className, currentFactor, setCurrentFactor}: {className?: string, currentFactor: string, setCurrentFactor: Function}) {
+function FactorSelectBox({className, currentFactor, setCurrentFactor, unavailableFactor}: {className?: string, currentFactor: string, setCurrentFactor: Function, unavailableFactor: string}) {
 
     const selectRef = useRef<HTMLSelectElement>(null)
 
-    let ignore = false
-    console.log(currentFactor)
+
     useEffect(() => {
-        // Add all factor options to <select>
+        // Remove all options every relender
+        if (selectRef.current) {
+              selectRef.current.innerHTML = "";
+        }
+        // Add all available factor options to <select>
         for (const value of Object.values(FACTOR_TYPE)) {
-            if (selectRef.current && !ignore) {
+            if (selectRef.current  && value != unavailableFactor) {
                 const option = document.createElement('option'); 
                 option.text = value; // e.g. "Happiness"
                 option.value = value;    
@@ -25,9 +28,8 @@ function FactorSelectBox({className, currentFactor, setCurrentFactor}: {classNam
             if (selectRef.current) {
                 selectRef.current.value = currentFactor.toString()
             }
-            ignore = true
         }
-    }, []);
+    }, [currentFactor, unavailableFactor]);
 
     const handleChange = (e) => {
         setCurrentFactor(e.target.value)
