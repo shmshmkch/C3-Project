@@ -31,7 +31,7 @@ function FactorSelectBox({className, currentFactor, setCurrentFactor, unavailabl
         }
     }, [currentFactor, unavailableFactor]);
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setCurrentFactor(e.target.value)
     }
     

@@ -41,10 +41,12 @@ function CoordinateInput(props: ValueProps) {
 
     const handleMouseUp = () => {
         setIsDragging(false)
+        document.onselectstart = null
     };
 
     const handleMouseLeave = () => {
         setIsDragging(false)
+        document.onselectstart = null
     }
 
     const calculateValueFromCoordinate = (x: number,y: number) => {
