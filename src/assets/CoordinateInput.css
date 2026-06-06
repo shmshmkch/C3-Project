@@ -97,7 +97,6 @@
 }
 
 #select_area {
-    margin-top: 10px;
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 40px;
@@ -106,5 +105,19 @@
 
 .axis_text {
     mix-blend-mode: soft-light;
-    margin: 20px 0 10px 0;
+    margin: 24px 0 12px 0;
+}
+
+.factor_select_flex_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.factor_select_flex_container .value_label {
+  font-size: 20px;
+  margin: 0;
+  mix-blend-mode: soft-light;
+  min-width: 50px;
+  text-align: right;
 }

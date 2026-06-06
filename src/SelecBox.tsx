@@ -38,7 +38,7 @@ function FactorSelectBox({className, currentFactor, setCurrentFactor, unavailabl
 
     return (
         <div className={`select_box ${className}`}>
-            <select name="factor" ref={selectRef} defaultValue={currentFactor.toString()} value={currentFactor.toString()} onChange={handleChange}>
+            <select name="factor" ref={selectRef} onChange={handleChange}>
                 
             </select>
             <div className="select_box_arrow"></div>

@@ -1,6 +1,6 @@
 .select_box {
   position: relative;
-  width: auto;
+  width: 100%;
   height: 40px;
   border-radius: 10px;
   transition: .2s;

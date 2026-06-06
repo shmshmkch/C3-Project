@@ -14,7 +14,7 @@ function App() {
         <div>
             <div id="logo">C3 Project</div>
             <CoordinateInput value={value} setValue={setValue} currentXFactor={currentXFactor} currentYFactor={currentYFactor} setCurrentXFactor={setCurrentXFactor} setCurrentYFactor={setCurrentYFactor}/>
-            <div id="value_area">
+            {/* <div id="value_area">
                 <div className='value_wrapper'>
                     <div id="x_value_label" className='value_label'>{currentXFactor}</div>
                     <div id="x_value" className='value'>{value.x}%</div>
@@ -23,7 +23,7 @@ function App() {
                     <div id="y_value_label" className='value_label'>{currentYFactor}</div>
                     <div id="y_value" className='value'>{value.y}%</div>
                 </div>
-            </div>
+            </div> */}
             {/* <Message text="Hello React"></Message> */}
         </div>
     );
