@@ -2,7 +2,7 @@ import {useEffect, useRef} from 'react';
 import './assets/SelectBox.css';
 import { FACTOR_TYPE } from './FACTOR_TYPE.ts';
 
-function FactorSelectBox({className, currentFactor, setCurrentFactor, unavailableFactor}: {className?: string, currentFactor: string, setCurrentFactor: Function, unavailableFactor: string}) {
+function FactorSelectBox({className, currentFactor, setCurrentFactor, unavailableFactor, request}: {className?: string, currentFactor: string, setCurrentFactor: Function, unavailableFactor: string, request: Function}) {
 
     const selectRef = useRef<HTMLSelectElement>(null)
 

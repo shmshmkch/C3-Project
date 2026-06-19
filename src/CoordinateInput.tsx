@@ -4,7 +4,7 @@ import Message from './Message';
 import axisImg from "./assets/axis.png"
 import { FACTOR_TYPE } from './FACTOR_TYPE.ts';
 import CoordinatePlane from './CoordinatePlane';
-import FactorSelectBox from './SelecBox';
+import FactorSelectBox from './FactorSelecBox.tsx';
 
 type ValueProps = {
   value: {x: number, y:number},
@@ -12,7 +12,8 @@ type ValueProps = {
   currentXFactor: string,
   currentYFactor: string,
   setCurrentXFactor: Function,
-  setCurrentYFactor: Function
+  setCurrentYFactor: Function,
+  request: Function
 };
 
 function CoordinateInput(props: ValueProps) {
@@ -34,19 +35,20 @@ function CoordinateInput(props: ValueProps) {
             const value = calculateValueFromCoordinate(e.clientX, e.clientY)
             props.setValue({x: value.x, y: 100 - value.y})
         }
+        // Do not select text during dragging
         document.onselectstart = () => {
-            return false
+            return false 
         }
     }
 
     const handleMouseUp = () => {
         setIsDragging(false)
-        document.onselectstart = null
+        props.request()
     };
 
     const handleMouseLeave = () => {
         setIsDragging(false)
-        document.onselectstart = null
+        document.onselectstart = null // Allow text selection again 
     }
 
     const calculateValueFromCoordinate = (x: number,y: number) => {
@@ -85,8 +87,7 @@ function CoordinateInput(props: ValueProps) {
                      onMouseLeave={handleMouseLeave}
             >
                 <CoordinatePlane/>
-                <div id="tracking_area"
-                     
+                <div id="tracking_area"          
                      ref={trackingAreaRef}>
                     <div 
                         id="pointer" 
@@ -104,12 +105,12 @@ function CoordinateInput(props: ValueProps) {
             <div id="select_area">
                 <p className="axis_text">→ Horizontal Axis</p>
                 <div className="factor_select_flex_container">
-                        <FactorSelectBox className='horizontal' currentFactor={props.currentXFactor} setCurrentFactor={props.setCurrentXFactor} unavailableFactor={props.currentYFactor}/>
+                        <FactorSelectBox className='horizontal' currentFactor={props.currentXFactor} setCurrentFactor={props.setCurrentXFactor} unavailableFactor={props.currentYFactor} request={props.request}/>
                         <p className="value_label">{props.value.x}%</p>
                 </div>
                 <p className="axis_text">↑ Vertical Axis</p>
                 <div className="factor_select_flex_container">
-                        <FactorSelectBox className="vertical" currentFactor={props.currentYFactor} setCurrentFactor={props.setCurrentYFactor} unavailableFactor={props.currentXFactor}/>
+                        <FactorSelectBox className="vertical" currentFactor={props.currentYFactor} setCurrentFactor={props.setCurrentYFactor} unavailableFactor={props.currentXFactor} request={props.request}/>
                         <p className="value_label">{props.value.y}%</p>
                 </div>
             </div>

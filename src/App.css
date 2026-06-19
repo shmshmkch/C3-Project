@@ -1,7 +1,13 @@
 body {
-  background-color: #F0F0F0;
+  background-color: rgb(245, 245, 245);
   color: #475967;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#main_container {
+  display: flex;
+  height: 100vh;
+  gap: 40px;
 }
 
 #logo {
@@ -26,4 +32,55 @@ body {
 .value {
   font-size: 50px;
   font-variant-numeric: tabular-nums;
+}
+
+#chat_pane {
+  /* height: 100vh; */
+  width: auto;
+  background-color: rgb(255, 255, 255);
+  flex-grow: 1;
+  margin: 40px 40px 40px 0px;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+
+.config_pane {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.config_pane p {
+  color: #bcbcbc;
+  font-size: 14px;
+  margin: 0;
+  margin-left: 20px;
+  width: 70px;
+  text-align: right;
+}
+
+#prompt_area, #situation_area {
+  height: 40px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-left: 1px solid #eee;
+}
+
+#prompt_input, #situation_input {
+  flex: 1;
+  border: none;
+  font-size: 14px;
+  color: #475967;
+  margin-left: 10px;
+  margin-right: 20px;
+  outline: none;
+}
+
+p#output {
+  margin: 30px 30px;
+  font-size: 16px;
+  line-height: 1.6em;
 }
