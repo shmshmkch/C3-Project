@@ -73,7 +73,7 @@ function App() {
 
             } catch (error) {
                 console.error("通信エラー:", error);
-                resultOutput = "サーバーとの通信に失敗しました。";
+                resultOutput = "Failed to communicate with the server";
             } finally {
                 setOutput(resultOutput)
             }
