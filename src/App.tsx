@@ -10,6 +10,8 @@ function App() {
     const [situation, setSituation] = useState("")
     const [prompt, setPrompt] = useState("")
 
+    const [output, setOutput] = useState("")
+
 
     // const [currentFactors, setCurrentFactors] = useState({x: FACTOR_TYPE.HAPPINESS, y: FACTOR_TYPE.FRANKNESS})
     const [currentXFactor, setCurrentXFactor] = useState(FACTOR_TYPE.HAPPINESS)
@@ -27,13 +29,56 @@ function App() {
         request()
     },[currentXFactor, currentYFactor])
 
-    const request = () => {
+    const request = async () => {
         if (situation != "" && prompt != "") {
             console.log("x factor : " + currentXFactor + ", y factor : " + currentYFactor)
             console.log("x value : " + value.x + ", y value : " + value.y)
             console.log("Situation: " + situation)
             console.log("Prompt: " + prompt)
-        }
+        } else return
+
+            const valueX = -1 + 2 * (value.x / 100)
+            const valueY = -1 + 2 * (value.y / 100)
+            const axisX = Object.keys(FACTOR_TYPE).find((key) => FACTOR_TYPE[key as keyof typeof FACTOR_TYPE] == currentXFactor)
+            const axisY = Object.keys(FACTOR_TYPE).find((key) => FACTOR_TYPE[key as keyof typeof FACTOR_TYPE] == currentYFactor)
+            let resultOutput = ""
+
+            // let apiURL = "http://localhost:8888/api/generatee
+            let apiURL = "http://localhost:8888/api/story_content.php?id=135"
+
+            setOutput("...")
+
+            try {
+                // ローカルで起動しているNode.jsサーバーにリクエストを送信
+                const response = await fetch(apiURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        situation,
+                        prompt,
+                        axisX,
+                        axisY,
+                        valueX, // JavaScript側で保持している現在の座標値
+                        valueY
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.result) {
+                    resultOutput= data.result;
+                } else {
+                    resultOutput = "エラーが発生しました: " + (data.error || "未知のエラー");
+                }
+
+            } catch (error) {
+                console.error("通信エラー:", error);
+                resultOutput = "サーバーとの通信に失敗しました。";
+            } finally {
+                setOutput(resultOutput)
+            }
     }
 
 
@@ -67,7 +112,7 @@ function App() {
                         </div>
                     </div>
                     <div>
-                        <p id="output">親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）</p>
+                        <p id="output">{output}</p>
                     </div>
                 </div>
             </div>
