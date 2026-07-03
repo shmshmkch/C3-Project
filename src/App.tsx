@@ -12,10 +12,8 @@ function App() {
 
     const [output, setOutput] = useState("")
 
-
-    // const [currentFactors, setCurrentFactors] = useState({x: FACTOR_TYPE.HAPPINESS, y: FACTOR_TYPE.FRANKNESS})
-    const [currentXFactor, setCurrentXFactor] = useState(FACTOR_TYPE.HAPPINESS)
-    const [currentYFactor, setCurrentYFactor] = useState(FACTOR_TYPE.LENGTH)
+    const [currentXFactor, setCurrentXFactor] = useState(FACTOR_TYPE.happiness)
+    const [currentYFactor, setCurrentYFactor] = useState(FACTOR_TYPE.length)
 
     // Requst when Enter key is pressed
     const handleInputKeyDown = (e: 

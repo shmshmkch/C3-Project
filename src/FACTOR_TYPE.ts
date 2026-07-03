@@ -1,8 +1,8 @@
 export const FACTOR_TYPE = {
-    "HAPPINESS": "Happiness",
-    "FRANKNESS": "Frankness",
-    "LENGTH": "Length",
-    "RHYME": "Rhyme",
-    "FORMALITY": "Formality",
-    "EMOTIONALITY": "Emotionality"
+    "happiness": "Happiness",
+    "frankness": "Frankness",
+    "length": "Length",
+    "rhyme": "Rhyme",
+    "formality": "Formality",
+    "emotionality": "Emotionality"
 } as const
