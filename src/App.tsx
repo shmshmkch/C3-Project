@@ -12,8 +12,8 @@ function App() {
 
     const [output, setOutput] = useState("")
 
-    const [currentXFactor, setCurrentXFactor] = useState(FACTOR_TYPE.happiness)
-    const [currentYFactor, setCurrentYFactor] = useState(FACTOR_TYPE.length)
+    const [currentXFactor, setCurrentXFactor] = useState(FACTOR_TYPE.formal)
+    const [currentYFactor, setCurrentYFactor] = useState(FACTOR_TYPE.emotion)
 
     // Requst when Enter key is pressed
     const handleInputKeyDown = (e: 
@@ -41,8 +41,7 @@ function App() {
             const axisY = Object.keys(FACTOR_TYPE).find((key) => FACTOR_TYPE[key as keyof typeof FACTOR_TYPE] == currentYFactor)
             let resultOutput = ""
 
-            // let apiURL = "http://localhost:8888/api/generatee
-            let apiURL = "http://localhost:8888/api/story_content.php?id=135"
+            let apiURL = "http://localhost:8888/api/generate"
 
             setOutput("...")
 
