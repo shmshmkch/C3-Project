@@ -84,20 +84,10 @@ function App() {
             <div id="main_container">
                 <div id="left_pane">
                     <div id="logo">C3 Project</div>
-                    <CoordinateInput value={value} setValue={setValue} currentXFactor={currentXFactor} currentYFactor={currentYFactor} setCurrentXFactor={setCurrentXFactor} setCurrentYFactor={setCurrentYFactor} request={request}/>
                 </div>
                 <div id="chat_pane">
                     <div id="situation_config" className='config_pane'>
                         <p>Situation</p>
-                        {/* <div className="format_select_box">
-                            <select name="format">
-                                <option>E-Mail</option>
-                                <option>Letter</option>
-                                <option>Report</option>
-                                <option>Lyric</option>
-                            </select>
-                             <div className="format_select_box_arrow"></div>
-                        </div> */}
                         <div id="situation_area">
                             <input type="text" id="situation_input" placeholder='Type Situation...' onChange={(e) => setSituation(e.target.value)} onKeyDown={handleInputKeyDown}></input>
                         </div>
@@ -108,10 +98,14 @@ function App() {
                             <input type="text" id="prompt_input" placeholder='Type Prompt...' onChange={(e) => setPrompt(e.target.value)} onKeyDown={handleInputKeyDown}></input>
                         </div>
                     </div>
-                    <div>
-                        <p id="output">{output}</p>
+                    <CoordinateInput value={value} setValue={setValue} currentXFactor={currentXFactor} currentYFactor={currentYFactor} setCurrentXFactor={setCurrentXFactor} setCurrentYFactor={setCurrentYFactor} request={request}/>
+                    <div id="button_area">
+                        <button className="btn-bordered">Reset</button>
+                        <button className="btn-solid">Generate</button>
                     </div>
                 </div>
+                <div className="link_line"></div>
+                <div className="output_pane"></div>
             </div>
         </>
     );

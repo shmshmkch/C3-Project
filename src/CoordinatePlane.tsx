@@ -1,4 +1,4 @@
-import axisImg from "./assets/axis.png"
+import axisImg from "./assets/axis_horizontal.png"
 import {useEffect, useRef} from 'react';
 
 function CoordinatePlane() {

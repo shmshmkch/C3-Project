@@ -1,7 +1,7 @@
 import { type Dispatch, useState, useCallback, useEffect, useRef} from 'react';
 import './assets/CoordinateInput.css';
 import Message from './Message';
-import axisImg from "./assets/axis.png"
+import axisImg from "./assets/axis_horizontal.png"
 import { FACTOR_TYPE } from './FACTOR_TYPE.ts';
 import CoordinatePlane from './CoordinatePlane';
 import FactorSelectBox from './FactorSelecBox.tsx';

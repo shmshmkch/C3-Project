@@ -1,23 +1,24 @@
 #coordinate_input {
     display: flex;
-    flex-direction: column;
-    width: 300px;
+    flex-direction: row;
+    width: auto;
     background: #345B79;
     background: linear-gradient(240deg, rgba(52, 91, 121, 0.8), rgba(163, 166, 178, 0.8));
-    box-shadow: 0px 10px 50px -6px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0px 10px 50px -6px rgba(0, 0, 0, 0.3); */
     border-radius: 40px;
     position: relative;
-    margin-left: 40px;
 }
 
 #coordinate_plane_wrapper {
     position: relative;
-    width: 220px;
-    height: 220px;
+    display: flex;
+    width: 240px;
+    height: 160px;
     align-self: flex-start;
     aspect-ratio: 1;
-    margin-top: 50px;
-    margin-left: 40px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
     background: linear-gradient(45deg, rgb(149, 155, 170) 0%, rgba(52, 91, 121, 1) 100%);
     box-shadow: 0px 10px 50px -6px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
@@ -25,7 +26,7 @@
 
 .axis_label {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     position: absolute;
     color: #c4c4c4;
     mix-blend-mode: soft-light;
@@ -36,14 +37,14 @@
 #x_axis_label {
     /* transform: rotate(90deg); */
     transform-origin: center;
-    transform: translateX(calc(50% + 20px)) rotate(90deg);
+    transform: translateX(calc(50% + 14px)) rotate(90deg);
     right: 0;
     top: calc(50% - 10px);
 }
 
 #y_axis_label {
     left: 50%;
-    transform: translate(-50%, calc(-100% - 10px));
+    transform: translate(-50%, calc(-100% - 4px));
 }
 #coordinate_plane, #tracking_area {
     height: 80%;
@@ -64,8 +65,8 @@
 
 .dot_mark {
     position:absolute;
-    height: 4px;
-    width: 4px;
+    height: 3px;
+    width: 3px;
     border-radius: 50%;
     background: #c0c0c0;
 }
@@ -97,9 +98,9 @@
 }
 
 #select_area {
+    flex-grow: 1;
     margin-left: 40px;
     margin-right: 40px;
-    margin-bottom: 40px;
     color: white;
 }
 
@@ -115,9 +116,9 @@
 }
 
 .factor_select_flex_container .value_label {
-  font-size: 20px;
+  font-size: 34px;
+  font-weight: 600;
   margin: 0;
-  mix-blend-mode: soft-light;
-  min-width: 50px;
+  min-width: 100px;
   text-align: right;
 }
